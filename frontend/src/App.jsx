@@ -336,7 +336,7 @@ export default function App() {
       </div>
 
       <footer className="footer">
-        <span>PIXELSTAKE v1.0 // PROJECT #2 OF 30 // BUILT ON STELLAR SOROBAN</span>
+        <span>PIXELSTAKE — ON-CHAIN PIXEL CANVAS</span>
         <a href={`https://stellar.expert/explorer/testnet/contract/${CONTRACT_ID}`} target="_blank" rel="noreferrer">
           CONTRACT ↗
         </a>
