@@ -21,7 +21,7 @@ async function simulateAndSend(tx) {
     throw new Error(`Simulation failed: ${sim.error}`)
   }
   const prepared = StellarSdk.rpc.assembleTransaction(tx, sim).build()
-  const signedXdr = await signTransaction(prepared.toXDR(), { networkPassphrase: NETWORK_PASSPHRASE })
+  const signedXdr = await signTransaction(prepared.toXDR(), { networkPassphrase: NETWORK_PASSPHRASE, network: 'TESTNET' })
   const final = StellarSdk.TransactionBuilder.fromXDR(signedXdr, NETWORK_PASSPHRASE)
   const result = await rpc.sendTransaction(final)
   return result
