@@ -21,7 +21,7 @@ async function simulateAndSend(tx) {
     throw new Error(`Simulation failed: ${sim.error}`)
   }
   const prepared = StellarSdk.rpc.assembleTransaction(tx, sim).build()
-  const result = await signTransaction(prepared.toXDR(), { network: 'TESTNET' })
+  const result = await signTransaction(prepared.toXDR(), { networkPassphrase: NETWORK_PASSPHRASE })
   if (result.error) throw new Error(result.error)
   const final = StellarSdk.TransactionBuilder.fromXDR(result.signedTxXdr, NETWORK_PASSPHRASE)
   const sent = await rpc.sendTransaction(final)
@@ -160,3 +160,5 @@ export async function loadFullCanvas() {
 }
 
 export { CONTRACT_ID, NETWORK_PASSPHRASE }
+
+
